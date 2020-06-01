@@ -1,16 +1,52 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
-        Employee[] persArray = new Employee[5];
-        persArray[0] = new Employee("лег щавелев ", "Генеральный директор", "dkhjg@mail.ru", "89258887754", 100000, 50);
-        persArray[1] = new Employee("Иван Морш", "Бугалтер", "qwdih@mail.ru", "892258976541", 80000, 48);
-        persArray[2] = new Employee("Ольга Бикмаева", "Кассир", "sdfjg@mail.ru", "89032587541", 50000, 29);
-        persArray[3] = new Employee("ВАсилий Шпак", "Убощик", "sdglkh@mail.ru", "+89635549688", 12000, 59);
-        persArray[4] = new Employee("Дмитрий Федоров", "менеджер ", "ihawf@mail.ru", "89269268544", 98000, 25);
-        for (int i = 0; i < persArray.length; i++) {
-            if (persArray[i].age > 40)
-                persArray[i].print();
-        }
+    public static void main(String[] args) throws InputMismatchException {
+
+        Scanner scanner = new Scanner(System.in);
+
+        double distanceRun =200;
+        double distanceJump = 3;
+        double distanceSwim =0;
+        Cat cat = new Cat(distanceRun, distanceJump, distanceSwim);
+
+        distanceRun =500;
+        distanceJump =1;
+        distanceSwim = 10;
+        Animal dog = new Dog(distanceRun, distanceJump, distanceSwim);
+
+
+        System.out.println("Кошка может пробежать: " + cat.getAnimalRun() +
+                " м. \nСобака может пробежать: " + dog.getAnimalRun() + " м.");
+
+        System.out.println("Введите дистанцию для бега:");
+        double distance = scanner.nextDouble();
+
+        System.out.println("Кошка пытается выполнить бег(" + distance + "). Результат: " + cat.run(distance));
+        System.out.println("Собака пытается выполнить бег(" + distance + "). Результат: " + dog.run(distance));
+        System.out.println("\n****************\n");
+
+        System.out.println("Кошка может прыгнуть: " + cat.getAnimalJump() +
+                " м. \nСобака может прыгнуть: " + dog.getAnimalJump() + " м.");
+
+        System.out.println("Введите высоту препятствия:");
+        distance = scanner.nextDouble();
+
+        System.out.println("Кошка пытается выполнить прыжок(" + distance + "). Результат: " + cat.jump(distance));
+        System.out.println("Собака пытается выполнить прыжок(" + distance + "). Результат: " + dog.jump(distance));
+        System.out.println("\n****************\n");
+
+        System.out.println("Кошка может проплыть: " + cat.getAnimalSwim() +
+                " м. \nСобака может проплыть: " + dog.getAnimalSwim() + " м.");
+
+        System.out.println("Введите дистанцию для плавания:");
+        distance = scanner.nextDouble();
+
+        System.out.println("Кошка пытается выполнить плавать(" + distance + "). Результат: " + cat.swim(distance));
+        System.out.println("Собака пытается выполнить плавать(" + distance + "). Результат: " + dog.swim(distance));
+
     }
 
 }
